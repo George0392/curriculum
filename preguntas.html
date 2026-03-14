@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrevista Técnica - George Galíndez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--accent);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .question-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s;
+        }
+        .question-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        .q-number {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .q-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .feedback-area {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--accent);
+            padding: 10px 15px;
+            margin-top: 15px;
+            font-style: italic;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .tech { background: rgba(56, 189, 248, 0.2); color: var(--accent); }
+        .behavioral { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
+    </style>
+</head>
+<body>
+    <h1>Simulador de Entrevista: George Galíndez</h1>
+    <p style="text-align: center; color: var(--text-dim); margin-bottom: 40px;">Como reclutador, he seleccionado estas 10 preguntas críticas basadas en tu perfil de Especialista en Infraestructura TI.</p>
+
+    <div class="question-card">
+        <span class="badge tech">Técnica</span>
+        <span class="q-number">Pregunta 1</span>
+        <span class="q-text">Has implementado Proxmox VE en 3 sedes regionales. ¿Cómo gestionas la alta disponibilidad (HA) y qué estrategia de respaldo aplicas para asegurar que un fallo en el nodo principal no detenga la operación?</span>
+        <div class="feedback-area">Espera: Quiero escuchar sobre replicación de ZFS o clusters Ceph, y cómo Open Media Vault se integra en el ciclo de RPO/RTO.</div>
+    </div>
+
+    <div class="question-card">
+        <span class="badge tech">Técnica</span>
+        <span class="q-number">Pregunta 2</span>
+        <span class="q-text">En una red con Mikrotik y múltiples sedes conectadas vía VPN, ¿cómo garantizas la seguridad del tráfico y qué QoS priorizas para asegurar que el sistema administrativo (Profit/Valery) no sufra latencia frente a otros consumos?</span>
+        <div class="feedback-area">Busco: Mención de Firewall Rules, colas simples o tipo PCQ, y protocolos VPN seguros como Wireguard o IPsec.</div>
+    </div>
+
+    <div class="question-card">
+        <span class="badge behavioral">Comportamiento</span>
+        <span class="q-number">Pregunta 3</span>
+        <span class="q-text">Cuéntame sobre una situación donde la infraestructura crítica falló bajo tu supervisión. ¿Qué pasos seguiste para resolverlo bajo presión y cómo evitaste que volviera a suceder?</span>
+        <div class="feedback-area">Clave: Capacidad analítica y proactividad en la mejora post-incidente (Root Cause Analysis).</div>
+    </div>
+
+    <div class="question-card">
+        <span class="badge tech">Técnica</span>
+        <span class="q-number">Pregunta 4</span>
+        <span class="q-text">Has desarrollado un ecosistema con Laravel, Vue y Capacitor para vendedores. ¿Cómo implementaste el protocolo de sincronización cada 5 minutos para asegurar la integridad de los datos en zonas con mala cobertura y evitar conflictos de concurrencia?</span>
+        <div class="feedback-area">Busco: Estrategias de "Offline-first", uso de almacenamiento local (SQLite/IndexedDB), gestión de colas de sincronización y resolución de conflictos basados en timestamps.</div>
+    </div>
+
+    <div class="question-card">
+        <span class="badge behavioral">Comportamiento</span>
+        <span class="q-number">Pregunta 5</span>
+        <span class="q-text">Has liderado equipos de hasta 8 pasantes. ¿Cómo logras que un equipo junior mantenga los estándares de calidad en tareas de soporte crítico y qué haces si alguien comete un error grave?</span>
+        <div class="feedback-area">Busco: Liderazgo pedagógico, protocolos de revisión y gestión de crisis humana.</div>
+    </div>
+
+    <div class="question-card">
+        <span class="badge tech">Técnica</span>
+        <span class="q-number">Pregunta 6</span>
+        <span class="q-text">En el despliegue de CCTV masivo (64+ cámaras), ¿cómo calculas el ancho de banda necesario en la red local y cuánto almacenamiento recomiendas para cumplir con normativas legales de respaldo?</span>
+        <div class="feedback-area">Dato técnico: Códecs H.265+, cálculo de bitrate y segmentación por VLANs para no saturar la red de datos.</div>
+    </div>
+
+    <div class="question-card">
+        <span class="badge behavioral">Comportamiento</span>
+        <span class="q-number">Pregunta 7</span>
+        <span class="q-text">¿Por qué pasar de roles de "Analista" a "Supervisor" ha sido el paso lógico en tu carrera? ¿Qué habilidades de gestión has aprendido que no tenías hace 5 años?</span>
+        <div class="feedback-area">Visión: Enfoque en resultados de negocio por encima de solo "reparar cables".</div>
+    </div>
+
+    <div class="question-card">
+        <span class="badge tech">Técnica</span>
+        <span class="q-number">Pregunta 8</span>
+        <span class="q-text">Usas Power BI para reportes de ventas. ¿Cómo manejas la extracción y transformación de datos (ETL) desde bases de datos legacy para que la gerencia vea información en tiempo real?</span>
+        <div class="feedback-area">Expertiz: Power Query, relaciones entre tablas y automatización de actualizaciones.</div>
+    </div>
+
+    <div class="question-card">
+        <span class="badge behavioral">Comportamiento</span>
+        <span class="q-number">Pregunta 9</span>
+        <span class="q-text">Trabajas de forma remota y presencial. ¿Cómo organizas tu jornada para dar soporte a sedes distantes (San Cristóbal vs Barrancas) asegurando que no queden "huérfanas" de atención?</span>
+        <div class="feedback-area">Eficacia: Uso de herramientas de acceso remoto (AnyDesk/RDP) y monitorización proactiva (The Dude/Zabbix).</div>
+    </div>
+
+    <div class="question-card">
+        <span class="badge behavioral">Comportamiento</span>
+        <span class="q-number">Pregunta 10</span>
+        <span class="q-text">Si te contratamos hoy, ¿cuál es el primer "quick win" (victoria rápida) que implementarías en nuestra infraestructura para demostrar valor inmediato?</span>
+        <div class="feedback-area">Cierre: Capacidad de diagnóstico rápido y enfoque en la eficiencia de costos o velocidad.</div>
+    </div>
+
+</body>
+</html>
