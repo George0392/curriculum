@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>George Galíndez - TSU en Informática</title>
+    <title>George Galíndez - Especialista TI & Software Dev</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -14,9 +14,9 @@
             --accent-color: #38bdf8;
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
-            --sidebar-width: 320px;
             --glass-bg: rgba(30, 41, 59, 0.7);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --container-width: 900px;
         }
 
         * {
@@ -30,140 +30,101 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--primary-bg);
-            background-image: url('C:/Users/lapbot/.gemini/antigravity/brain/e4d1cb19-b9fe-432c-8c24-65c607e59e4c/george_professional_background_1773272847941.png');
-            background-size: cover;
+            background-image: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent),
+                              radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.05), transparent);
             background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
+            padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
         }
 
         h1, h2, h3 {
             font-family: 'Outfit', sans-serif;
         }
 
-        /* Layout */
-        .page-container {
-            display: flex;
-            min-height: 100vh;
-            max-width: 1200px;
+        .cv-container {
+            max-width: var(--container-width);
             margin: 0 auto;
-            position: relative;
-            background: var(--primary-bg);
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: clamp(30px, 8vw, 60px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* Sidebar */
-        .sidebar {
-            width: var(--sidebar-width);
-            background: var(--secondary-bg);
-            padding: 40px 30px;
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: clamp(30px, 8vw, 50px);
+            position: relative;
+        }
+
+        .header-content {
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            border-right: 1px solid var(--glass-border);
-        }
-
-        .profile-container {
-            text-align: center;
+            align-items: center;
         }
 
         .profile-pic {
-            width: 180px;
-            height: 180px;
+            width: clamp(100px, 20vw, 140px);
+            height: clamp(100px, 20vw, 140px);
             border-radius: 50%;
-            border: 4px solid var(--accent-color);
+            border: 3px solid var(--accent-color);
             margin-bottom: 20px;
             object-fit: cover;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
         }
 
-        .tsu-badge {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--primary-bg);
-            padding: 4px 12px;
-            border-radius: 20px;
+        h1 {
+            font-size: clamp(2rem, 8vw, 3rem);
             font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .sidebar-section h3 {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 8px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-size: 0.9rem;
-            color: var(--text-dim);
-        }
-
-        .contact-item strong {
-            color: var(--text-main);
-            display: block;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            padding: 50px;
-            background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        /* Sidebar within Main Content (Screen) */
-        .sidebar {
-            width: var(--sidebar-width);
-            background: var(--secondary-bg);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            position: sticky;
-            top: 50px;
-            flex-shrink: 0;
-        }
-
-        /* Content area next to sidebar (Screen) */
-        .content-area {
-            flex: 1;
-        }
-
-        .header-main {
-            margin-bottom: 40px;
-        }
-
-        .header-main h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #fff, #38bdf8);
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, var(--accent-color));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: clamp(10px, 2vw, 20px);
+            flex-wrap: wrap;
+            color: var(--text-dim);
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: clamp(30px, 8vw, 50px);
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 5vw, 1.5rem);
             color: var(--accent-color);
-            margin: 40px 0 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -173,676 +134,527 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(to right, var(--accent-color), transparent);
+            background: linear-gradient(to right, var(--glass-border), transparent);
         }
 
-        /* Experience Timeline */
-        .experience-item {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 35px;
+        /* Experience & Projects */
+        .item {
+            margin-bottom: 30px;
+            padding-left: clamp(15px, 4vw, 20px);
             border-left: 2px solid var(--glass-border);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .experience-item:hover {
-            transform: translateX(5px);
-            border-left-color: var(--accent-color);
+        @media (hover: hover) {
+            .item:hover {
+                border-left-color: var(--accent-color);
+                transform: translateX(5px);
+            }
         }
 
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -7px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--primary-bg);
-            border: 2px solid var(--accent-color);
-        }
-
-        .exp-header {
+        .item-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 600;
+        .item-title {
+            font-size: clamp(1.1rem, 4vw, 1.2rem);
+            font-weight: 700;
             color: var(--text-main);
         }
 
-        .company {
+        .item-company {
             color: var(--accent-color);
             font-weight: 500;
+            font-style: italic;
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
         }
 
-        .duration {
+        .item-date {
             font-size: 0.85rem;
             color: var(--text-dim);
-            background: var(--glass-bg);
+            background: rgba(255,255,255,0.05);
             padding: 2px 10px;
             border-radius: 4px;
         }
 
-        .exp-list {
+        ul {
             list-style: none;
-            font-size: 0.95rem;
             color: var(--text-dim);
         }
 
-        .exp-list li {
-            margin-bottom: 5px;
+        ul li {
             position: relative;
-            padding-left: 15px;
+            padding-left: 20px;
+            margin-bottom: 6px;
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
         }
 
-        .exp-list li::before {
-            content: '•';
+        ul li::before {
+            content: '→';
             position: absolute;
             left: 0;
             color: var(--accent-color);
         }
 
-        /* Skills Grid */
-        .skills-grid {
+        /* Skills */
+        .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: 30px;
         }
 
-        .skill-node {
-            background: var(--glass-bg);
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid var(--glass-border);
-            text-align: center;
+        .skill-group h4 {
+            color: var(--text-main);
+            margin-bottom: 15px;
+            font-size: clamp(0.95rem, 4vw, 1rem);
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 5px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 4px 12px;
+            border-radius: 6px;
             font-size: 0.85rem;
+            color: var(--text-main);
             transition: all 0.3s ease;
         }
 
-        .skill-node:hover {
-            border-color: var(--accent-color);
-            background: rgba(56, 189, 248, 0.1);
+        @media (hover: hover) {
+            .tag:hover {
+                background: var(--accent-color);
+                color: var(--primary-bg);
+                transform: translateY(-2px);
+            }
         }
 
-        /* Floating Button */
+        /* Print Button */
         .print-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: clamp(20px, 5vw, 30px);
+            right: clamp(20px, 5vw, 30px);
             background: var(--accent-color);
             color: var(--primary-bg);
             border: none;
-            padding: 15px 25px;
+            padding: clamp(12px, 3vw, 15px) clamp(20px, 5vw, 25px);
             border-radius: 50px;
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             display: flex;
             align-items: center;
             gap: 10px;
             z-index: 1000;
             transition: all 0.3s ease;
+            font-size: clamp(0.85rem, 3vw, 1rem);
         }
 
-        .print-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(56, 189, 248, 0.6);
+        @media (hover: hover) {
+            .print-btn:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 25px rgba(56, 189, 248, 0.6);
+            }
         }
 
-        /* Utility */
-        .info-card {
-            background: var(--glass-bg);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid var(--glass-border);
-            margin-bottom: 15px;
+        /* Responsive Breakpoints */
+        @media (max-width: 480px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
-        
-       /* ============================================================
-           DISEÑO PDF: MODO EQUILIBRADO (JERARQUÍA Y ESTÉTICA)
-           ============================================================ */
+
+        /* QR Code Styling */
+        .qr-code {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-border);
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .qr-code:hover {
+            opacity: 1;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .qr-code p {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media screen and (max-width: 480px) {
+            .qr-code { margin-top: 20px; }
+        }
+
+        /* ========================================= */
+        /* OPTIMIZACIÓN EXTREMA PARA IMPRESIÓN (PDF) */
+        /* ========================================= */
         @media print {
             @page {
-                size: letter;
-                margin: 0.8cm;
+                margin: 1.5cm; /* Márgenes ajustados de la página */
             }
 
-            * {
-                background-color: transparent !important;
-                background-image: none !important;
-                color: #000 !important;
-                box-shadow: none !important;
-                text-shadow: none !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
+            body { 
+                padding: 0 !important; 
+                background: white !important; 
+                color: #111 !important; 
+                font-size: 10pt !important; /* Letra base más pequeña */
+                line-height: 1.3 !important; /* Menor interlineado */
             }
 
-            body {
-                font-size: 9pt !important; 
-                line-height: 1.3 !important; 
+            .cv-container { 
+                box-shadow: none !important; 
+                border: none !important; 
+                padding: 0 !important; 
+                max-width: 100% !important; 
+                background: transparent !important; 
+                backdrop-filter: none !important; 
             }
 
-            .print-btn, .tsu-badge, .experience-item::before, .section-title::after { 
-                display: none !important; 
-            }
+            .print-btn { display: none !important; }
 
-            .page-container {
-                display: block !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                width: 100% !important;
-                border: none !important;
+            /* Header rediseñado para ocupar menos alto: Foto a la izquierda, texto a la derecha */
+            header {
+                text-align: left !important;
+                margin-bottom: 15px !important;
+                padding-bottom: 10px !important;
+                border-bottom: 2px solid #0284c7 !important;
             }
-
-            .main-content {
-                display: grid !important;
-                grid-template-columns: 190px 1fr !important;
-                gap: 25px !important;
-                padding: 0 !important;
-                align-items: start !important;
-            }
-
-            /* COLUMNA IZQUIERDA */
-            .sidebar {
-                display: block !important;
-                padding: 0 !important;
-                border: none !important;
-                border-right: 1px solid #aaa !important;
-                padding-right: 15px !important;
-                position: static !important;
-            }
-
-            .profile-container { text-align: center !important; margin-bottom: 10px !important; }
-            .profile-pic {
-                width: 80px !important; 
-                height: 80px !important;
-                border: 1px solid #666 !important;
-                margin-bottom: 8px !important;
-            }
-
-            .sidebar-section { margin-bottom: 12px !important; }
-            .sidebar-section h3 {
-                font-size: 10pt !important;
-                text-transform: uppercase !important;
-                border-bottom: 1px solid #aaa !important;
-                margin-bottom: 4px !important;
-                padding-bottom: 2px !important;
-                font-weight: bold !important;
-            }
-
-            .contact-item, .info-card {
-                border: none !important;
-                padding: 0 !important;
-                margin-bottom: 4px !important;
-                font-size: 8.5pt !important; 
-            }
-
-            /* COLUMNA DERECHA */
-            .content-area {
-                display: block !important;
-                width: 100% !important;
-            }
-
-            .header-main { 
-                margin-bottom: 15px !important; 
-                border-bottom: 1.5px solid #000 !important; 
-                padding-bottom: 5px !important; 
-            }
-            .header-main h1 {
-                font-size: 22pt !important; 
-                line-height: 1 !important;
-                margin-bottom: 4px !important;
-                background: none !important;
-                -webkit-text-fill-color: #000 !important;
-            }
-            .header-main p { font-size: 11.5pt !important; font-weight: bold !important; margin: 0 !important; }
-
-            section.info-card[style*="border-left"] {
-                border: none !important;
-                border-left: 2px solid #000 !important;
-                padding-left: 10px !important;
-                margin-bottom: 15px !important; 
-            }
-            section.info-card h3 { display: none !important; }
-            section.info-card p { font-size: 9pt !important; margin: 0 !important; }
-
-            .section-title {
-                font-size: 12pt !important;
-                text-transform: uppercase !important;
-                border-bottom: 1px solid #000 !important;
-                margin: 15px 0 10px 0 !important; 
-                padding-bottom: 2px !important;
-                font-weight: bold !important;
-            }
-
-            /* =========================================
-               NUEVA EXPERIENCIA (ESTÉTICA Y RESALTADA)
-               ========================================= */
-            .experience-item {
-                border-left: none !important; 
-                padding-left: 0 !important;
-                margin-bottom: 16px !important; /* Damos un poco más de aire entre bloques */
-                page-break-inside: avoid !important;
-                transform: none !important;
-            }
-
-            .exp-header { 
-                margin-bottom: 6px !important; 
-                display: flex !important; 
-                justify-content: space-between !important; 
-                align-items: flex-start !important; 
-            }
-
-            .exp-header > div {
+            
+            .header-content {
                 display: flex !important;
-                flex-direction: column !important; /* Volvemos a colocar la empresa debajo del cargo */
-            }
-
-            /* EL PROTAGONISTA: Título del Cargo */
-            .job-title { 
-                font-size: 11pt !important; 
-                font-weight: 900 !important; /* Extra negrita */
-                text-transform: uppercase !important; /* Mayúsculas para imposición visual */
-                color: #000 !important;
-                border-bottom: 1.5px solid #000 !important; /* Subrayado elegante e inferior */
-                padding-bottom: 2px !important;
-                margin-bottom: 4px !important;
-                display: table !important; /* Hace que la línea mida exactamente lo mismo que el texto */
-                letter-spacing: 0.5px !important;
-            }
-
-            .company { 
-                font-size: 10pt !important; 
-                font-weight: bold !important;
-                font-style: italic !important;
-                display: block !important; 
-            }
-            .company::before { content: none !important; } /* Quitamos la barra espaciadora de la versión anterior */
-
-            .duration { 
-                font-size: 9pt !important; 
-                font-weight: bold !important;
-                text-align: right !important; 
-                white-space: nowrap !important;
-                padding-top: 2px !important; /* Lo alinea visualmente con el texto del cargo */
-            }
-
-            .exp-list { 
-                margin-left: 15px !important; 
-                margin-bottom: 0 !important;
-                list-style-type: square !important; 
-            }
-            .exp-list li { margin-bottom: 3px !important; padding-left: 0 !important; }
-            .exp-list li::before { display: none !important; }
-
-            /* HABILIDADES Y CURSOS */
-            .skills-grid {
-                display: flex !important;
-                flex-wrap: wrap !important;
-                gap: 5px !important; 
-            }
-            .skill-node {
-                border: 1px solid #444 !important;
-                padding: 3px 7px !important;
-                font-size: 8.5pt !important;
-                border-radius: 3px !important;
-            }
-
-            div[style*="grid-template-columns: 1fr 1fr"] {
-                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
                 gap: 20px !important;
             }
-            div[style*="grid-template-columns: 1fr 1fr"] > div { flex: 1 !important; margin-bottom: 0 !important; }
-        }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .page-container { flex-direction: column; }
-            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--glass-border); padding: 30px 20px; }
-            .main-content { padding: 30px 20px; }
-            .header-main h1 { font-size: 2.2rem; }
-            :root { --sidebar-width: 100%; }
-        }
+            .profile-pic {
+                width: 70px !important;
+                height: 70px !important;
+                margin-bottom: 0 !important;
+                border: 2px solid #0284c7 !important;
+                box-shadow: none !important;
+            }
 
-        @media (max-width: 480px) {
-            .header-main h1 { font-size: 1.8rem; }
-            .section-title { font-size: 1.3rem; }
-            .job-title { font-size: 1.1rem; }
+            .header-text {
+                flex-grow: 1;
+            }
+
+            h1 { 
+                background: none !important; 
+                -webkit-text-fill-color: black !important; 
+                color: black !important; 
+                font-size: 18pt !important; 
+                margin-bottom: 2px !important;
+            }
+
+            .subtitle { 
+                color: #0284c7 !important; 
+                font-size: 11pt !important; 
+                margin-bottom: 5px !important;
+            }
+
+            .contact-info { 
+                justify-content: flex-start !important; 
+                gap: 15px !important; 
+                color: #333 !important;
+                font-size: 9pt !important;
+            }
+
+            /* Secciones más compactas */
+            section { margin-bottom: 15px !important; }
+
+            .section-title { 
+                color: #0284c7 !important; 
+                font-size: 12pt !important; 
+                margin-bottom: 10px !important; 
+            }
+
+            .section-title::after { background: #ccc !important; } /* Línea separadora gris en PDF */
+
+            /* Items de experiencia y educación */
+            .item { 
+                page-break-inside: avoid; 
+                border-left: 2px solid #0284c7 !important; 
+                margin-bottom: 10px !important; 
+                padding-left: 10px !important;
+            }
+            .item:hover { transform: none !important; }
+
+            .item-header { margin-bottom: 2px !important; }
+            .item-title { font-size: 11pt !important; color: black !important; }
+            .item-company { color: #0284c7 !important; font-size: 10pt !important; }
+            .item-date { font-size: 9pt !important; padding: 0 !important; color: #555 !important; background: none !important;}
+
+            ul li { 
+                font-size: 9.5pt !important; 
+                margin-bottom: 2px !important; 
+                color: #222 !important;
+            }
+            ul li::before { color: #0284c7 !important; }
+
+            /* Grilla de habilidades forzada a 4 columnas */
+            .skills-container {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 10px !important;
+            }
+
+            .skill-group h4 {
+                color: black !important;
+                font-size: 10pt !important;
+                margin-bottom: 5px !important;
+                border-bottom: 1px solid #ccc !important;
+                padding-bottom: 2px !important;
+            }
+
+            .skill-tags { gap: 4px !important; }
+
+            .tag { 
+                border: 1px solid #ccc !important; 
+                color: #111 !important; 
+                background: #f8f9fa !important; 
+                padding: 2px 6px !important;
+                font-size: 8pt !important;
+                border-radius: 4px !important;
+            }
+            .tag:hover { transform: none !important; }
+
+            /* Código QR miniaturizado a la derecha del header o al final */
+            .qr-code { 
+                display: block !important; 
+                opacity: 1 !important; 
+                margin-top: 10px !important;
+                padding-top: 10px !important;
+                border-top: 1px solid #ccc !important;
+                text-align: right !important; /* Alineado a la derecha para no estorbar */
+            }
+            .qr-code img { 
+                width: 50px !important; 
+                height: 50px !important; 
+                margin-bottom: 0 !important;
+                padding: 0 !important;
+            }
+            .qr-code p { font-size: 7pt !important; color: #555 !important; margin-top: 2px !important; }
+            
+            /* Para ocultar el elemento resumen si quieres ganar aún más espacio, aunque lo he dejado visible */
+            /* .resumen { display: none !important; } */
         }
     </style>
 </head>
-<body itemscope itemtype="https://schema.org/Person">
-    <!-- Structured Data for ATS Bots -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "George Willmer Galíndez Lugo",
-      "jobTitle": "Especialista en Soporte e Infraestructura Tecnológica",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Barquisimeto",
-        "addressRegion": "Lara",
-        "addressCountry": "VE"
-      },
-      "email": "georgegalindez@gmail.com",
-      "telephone": ["+58 412-516-70-87", "+58 424-582-04-26"],
-      "url": "https://georgegalindez.dev",
-      "description": "Especialista en Continuidad Tecnológica con más de 15 años de experiencia en soporte nivel 3, redes Mikrotik y virtualización Proxmox.",
-      "hasCredential": [
-        {
-          "@type": "EducationalOccupationalCredential",
-          "name": "T.S.U en Informática",
-          "educationalLevel": "Técnico Superior Universitario"
-        }
-      ],
-      "knowsAbout": ["Mikrotik Routerboard", "Proxmox Virtualization", "Laravel Framework", "Vue.js", "Capacitor (Android)", "Power BI", "Soporte Técnico Nivel 3", "Cybersecurity", "Redes VPN"],
-      "worksFor": [
-        {
-          "@type": "Organization",
-          "name": "Distribuidora El Loro"
-        },
-        {
-          "@type": "Organization",
-          "name": "Multimax Store CA"
-        }
-      ]
-    }
-    </script>
+<body>
 
-    <div class="page-container">
-        <main class="main-content">
-            <aside class="sidebar">
-                <div class="profile-container">
-                    <div class="tsu-badge">TSU EN INFORMATICA</div>
-                    <img src="yopi.jpg" alt="George Galíndez" class="profile-pic" id="profile-pic" itemprop="image">
-                    <p style="color: var(--text-dim); font-size: 0.9rem;" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                        <span itemprop="addressLocality">Barquisimeto</span>, <span itemprop="addressRegion">Estado Lara</span>
-                    </p>
-                </div>
-
-                <section class="sidebar-section">
-                    <h3>Contacto Directo</h3>
-                    <div class="contact-item">
-                        <strong>Email</strong>
-                        <span itemprop="email">georgegalindez@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <strong>Teléfonos</strong>
-                        <span itemprop="telephone">(+58) 412-516-70-87 / 424-582-04-26</span>
-                    </div>
-                    <div class="contact-item">
-                        <strong>Ubicación</strong>
-                        <span>Calle Unión con Pedregal y la Cima #157. Barrio Colinas de José Félix Ribas. Barquisimeto, Estado Lara.</span>
-                    </div>
-                </section>
-
-                <section class="sidebar-section">
-                    <h3>Datos Personales</h3>
-                    <div class="contact-item"><span>Nacimiento: 29/10/1986</span></div>
-                    <div class="contact-item"><span>Edad: 38 años</span></div>
-                    <div class="contact-item"><span>Estado Civil: Soltero</span></div>
-                    <div class="contact-item"><span>C.I: V-18.262.688</span></div>
-                </section>
-
-                <section class="sidebar-section">
-                    <h3>Información de Utilidad</h3>
-                    <div class="info-card" style="padding: 10px;">
-                        <ul class="exp-list" style="font-size: 0.8rem; margin: 0;">
-                            <li>Licencia de conducir 3er. Grado / Vehículo Propio</li>
-                            <li>Herramientas de trabajo propias (Laptop, PC)</li>
-                            <li>Internet 500 MB Fibra + Respaldo Eléctrico</li>
-                            <li>Sólida Capacidad de Liderazgo</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section class="sidebar-section">
-                    <h3>Referencias Directas</h3>
-                    <div class="info-card" style="font-size: 0.8rem; margin-bottom: 8px; padding: 10px;">
-                        <strong>Claudio Giust</strong> (Gerente Multimax)<br>0414-521-93-39
-                    </div>
-                    <div class="info-card" style="font-size: 0.8rem; padding: 10px;">
-                        <strong>Anyeli Sanchez</strong> (Sub-Gerente)<br>0412-517-08-81
-                    </div>
-                </section>
-            </aside>
-
-            <div class="content-area">
-                <header class="header-main">
-                    <h1 itemprop="name">George Willmer<br>Galíndez Lugo</h1>
-                    <p style="color: var(--accent-color); font-size: 1.2rem; font-weight: 600; margin-top: -10px;">Especialista en Infraestructura y Soporte TI</p>
-                </header>
-
-                <section class="info-card" style="margin-bottom: 30px; border-left: 4px solid var(--accent-color); background: rgba(56, 189, 248, 0.05);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 10px; font-family: 'Outfit'; text-transform: uppercase;">Resumen Ejecutivo (Perfil Profesional)</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.6;" itemprop="description">
-                        <strong>Especialista en Continuidad Tecnológica</strong> con más de 15 años de trayectoria garantizando la operatividad de infraestructuras críticas. Experto en <strong>soporte técnico de alto nivel (Nivel 3)</strong>, administración de redes seguras basadas en <strong>Mikrotik</strong> y entornos virtualizados con <strong>Proxmox</strong>. Combino mi sólida formación en hardware con habilidades de desarrollo web (Laravel) para automatizar procesos y optimizar la toma de decisiones empresariales.
-                    </p>
-                </section>
-
-                <h2 class="section-title">Experiencia Profesional y Logros</h2>
-
-                <div class="experience-item" itemprop="hasOccupation" itemscope itemtype="https://schema.org/Occupation">
-                    <div class="exp-header">
-                        <div>
-                            <div class="job-title" itemprop="name">Supervisor de Soporte y Tecnología</div>
-                            <div class="company">DISTRIBUIDORA EL LORO</div>
-                        </div>
-                        <div class="duration">Jul 2024 - Actualidad</div>
-                    </div>
-                    <ul class="exp-list">
-                        <li>Supervisión de estabilidad y operatividad de 3 sedes regionales (Lara, San Cristóbal, Barrancas).</li>
-                        <li>Implementación de <strong>Proxmox VE</strong> en las tres sedes para virtualización de servicios.</li>
-                        <li>Despliegue de <strong>Open Media Vault (Servidor NAS)</strong> para respaldo centralizado.</li>
-                        <li>Configuración de entornos virtuales: Windows Server 2k19, OMV, Ubuntu Server, Escritorio Remoto y Print Server.</li>
-                        <li>Gestión de servicios <strong>Power BI</strong> para reportería de ventas y stock.</li>
-                        <li>Administración de redes <strong>Mikrotik</strong> y creación de túneles VPN para interconexión de sedes.</li>
-                        <li>Diseño y desarrollo de <strong>aplicaciones web (Laravel)</strong> y <strong>móviles híbridas (Vue + Capacitor)</strong> para el soporte técnico a la fuerza de ventas en calle, con protocolos de sincronización automatizada cada 5 minutos.</li>
-                        <li>Configuración de biométricos Hikvision y sistema IVMS 4200 (Diseño de reportes personalizados en macros Excel y HTML).</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item" itemprop="hasOccupation" itemscope itemtype="https://schema.org/Occupation">
-                    <div class="exp-header">
-                        <div>
-                            <div class="job-title" itemprop="name">Agente CECO Integral</div>
-                            <div class="company">INTER - CORPORACION TELEMIC</div>
-                        </div>
-                        <div class="duration">Mayo 2024 - Junio 2024</div>
-                    </div>
-                    <ul class="exp-list">
-                        <li>Asesoramiento integral a clientes Inter mediante ERP InConcert y K2B.</li>
-                        <li>Resolución de fallas y atención técnica nivel 1 (Retirado por reducción de personal).</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item" itemprop="hasOccupation" itemscope itemtype="https://schema.org/Occupation">
-                    <div class="exp-header">
-                        <div>
-                            <div class="job-title" itemprop="name">Analista de Sistemas</div>
-                            <div class="company">LA VICTORIA C.A</div>
-                        </div>
-                        <div class="duration">Jun 2019 - May 2024</div>
-                    </div>
-                    <ul class="exp-list">
-                        <li>Mantenimiento e instalación de redes LAN/Wifi y configuración de <strong>Mikrotik RB2011IL-RM</strong>.</li>
-                        <li>Instalación y soporte de Central Telefónica Panasonic KX-TDE600.</li>
-                        <li>Administración de sistemas <strong>Profit 2k12</strong> (Administrativo y Nómina).</li>
-                        <li>Responsable de CCTV, alarmas y sistemas de control biométrico (Hasta el cierre de la empresa).</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item" itemprop="hasOccupation" itemscope itemtype="https://schema.org/Occupation">
-                    <div class="exp-header">
-                        <div>
-                            <div class="job-title" itemprop="name">Técnico de Implementación (Enviado por La Victoria CA)</div>
-                            <div class="company">MULTIMAX STORE CA (Sedes Barinas y Sambil Bqto)</div>
-                        </div>
-                        <div class="duration">Abr 2020 - Ago 2021</div>
-                    </div>
-                    <ul class="exp-list">
-                        <li>Despliegue tecnológico en superficies de 1200m² a 3000m².</li>
-                        <li>Instalación masiva de CCTV (hasta 64 cámaras) y sistemas de seguridad.</li>
-                        <li>Configuración de red core con <strong>Mikrotik RB4011</strong> y central KX-TDE600.</li>
-                        <li>Administración de Windows Server 2k12 R2 sobre <strong>VMware</strong> (Migrado luego a Proxmox).</li>
-                        <li>Configuración y codificado de radios de comunicación Baofeng.</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <div>
-                            <div class="job-title">Analista de Soporte</div>
-                            <div class="company">TIENDAS AURORA CA (Sede Nueva Segovia)</div>
-                        </div>
-                        <div class="duration">Abr 2017 - Jun 2019</div>
-                    </div>
-                    <ul class="exp-list">
-                        <li>Implementación total en tienda de 150m² (Red LAN, CCTV, Alarmas).</li>
-                        <li>Instalación y soporte del <strong>Sistema Valery</strong> en sedes Sambil, Barquicenter, CC Paseo y Almacén.</li>
-                        <li>Mantenimiento de infraestructura Windows Server 2k12 R2.</li>
-                        <li>Desarrollo de la presencia web corporativa (auroratiendas.com).</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <div>
-                            <div class="job-title">Jefe de Informática</div>
-                            <div class="company">ByC COMPUTACIÓN - SISTEMAS SAE</div>
-                        </div>
-                        <div class="duration">Oct 2014 - Abr 2017</div>
-                    </div>
-                    <ul class="exp-list">
-                        <li>Instalación y actualización masiva del <strong>Sistema SAE</strong> (Pagos, Primaria, Bachillerato) en diversas instituciones.</li>
-                        <li>Liderazgo y entrenamiento de equipos de pasantes (hasta 8 personas).</li>
-                        <li>Desarrollo de procesos de carnetización y soporte de hardware a nivel educativo.</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <div>
-                            <div class="job-title">Técnico de Computación y Atención al Cliente</div>
-                            <div class="company">SISSEGTELCA CA</div>
-                        </div>
-                        <div class="duration">2010 - 2013</div>
-                    </div>
-                    <ul class="exp-list">
-                        <li>Técnico aprendiz en instalación de CCTV y Centrales Telefónicas.</li>
-                        <li>Repotenciación de equipos y recarga especializada de consumibles (HP/Ricoh).</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <div>
-                            <div class="job-title">Instructor Técnico</div>
-                            <div class="company">ESCUELA ROBINSONIANA / CLUB COMPUTACIÓN UNEXPO</div>
-                        </div>
-                        <div class="duration">2010 - 2015</div>
-                    </div>
-                    <ul class="exp-list">
-                        <li>Capacitación en Office (2007/2013), Photoshop CS3 y Redes LAN.</li>
-                        <li>Formación en mantenimiento preventivo y correctivo de hardware.</li>
-                    </ul>
-                </div>
-
-                <h2 class="section-title">Experiencia Laboral Online (Argentina)</h2>
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <div class="job-title">Desarrollo de Web Apps</div>
-                        <div class="company">JABLACK SOFT</div>
-                    </div>
-                    <ul class="exp-list">
-                        <li><strong>Cisca Peluquerías</strong>: Sistema administrativo para gestión de servicios.</li>
-                        <li><strong>GYM On FIT</strong>: Plataforma de gestión de pagos y membresías.</li>
-                        <li><strong>Spa Altuén</strong>: Sistema de citas y control de clientes para hotelería.</li>
-                    </ul>
-                </div>
-
-                <h2 class="section-title">Formación Académica Completa</h2>
-                <div class="experience-item">
-                    <div class="job-title">T.S.U en Informática</div>
-                    <div class="company">IUT Antonio José de Sucre</div>
-                </div>
-                <div class="experience-item">
-                    <div class="job-title">Ingeniería Electrónica (Hasta 5to Semestre)</div>
-                    <div class="company">UNEXPO Barquisimeto</div>
-                </div>
-
-                <h2 class="section-title">Certificaciones y Cursos Realizados</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="info-card">
-                        <ul class="exp-list" style="font-size: 0.8rem;">
-                            <li>Mantenimiento y Reparación de PC´s</li>
-                            <li>CCTV y Video Vigilancia Remota</li>
-                            <li>Manejador SQL Server 2008</li>
-                            <li>Redes Básicas y Servidores</li>
-                            <li>Electro-Auto y Fuel Injection</li>
-                        </ul>
-                    </div>
-                    <div class="info-card">
-                        <ul class="exp-list" style="font-size: 0.8rem;">
-                            <li>Desarrollo HTML y CSS</li>
-                            <li>Programación PHP + MySQL</li>
-                            <li>Diseño en Photoshop CS3</li>
-                            <li>Ofimática Office 2007 avanzada</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h2 class="section-title">Especialización Autodidacta</h2>
-                <div class="skills-grid" style="grid-template-columns: repeat(3, 1fr);">
-                    <div class="skill-node">Bootstrap 5</div>
-                    <div class="skill-node">Windows Server 2012</div>
-                    <div class="skill-node">VB.NET</div>
-                    <div class="skill-node">Laravel + Livewire</div>
-                    <div class="skill-node">GIT / Control Versiones</div>
-                    <div class="skill-node">WordPress Dev</div>
-                    <div class="skill-node">Cámaras IP Config</div>
-                    <div class="skill-node">Routerboard Mikrotik</div>
-                    <div class="skill-node">Power BI Analytics</div>
-                </div>
-            </div> <!-- End content-area -->
-        </main>
-    </div>
-
-    <button class="print-btn" onclick="prepararImpresion()">
+    <button class="print-btn" onclick="window.print()">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-        PDF
+        IMPRIMIR PDF
     </button>
 
-<script>
-        function prepararImpresion() {
-            // 1. Guardamos el título original de la pestaña
-            const tituloOriginal = document.title;
+    <div class="cv-container">
+        <header>
+            <div class="header-content">
+                <img src="yopi.jpg" alt="George Galíndez" class="profile-pic">
+                <div class="header-text">
+                    <h1>George Willmer Galíndez Lugo</h1>
+                    <p class="subtitle">Especialista TI & Software Developer</p>
+                    <div class="contact-info">
+                        <span>📍 Barquisimeto, Estado Lara</span>
+                        <span>📧 georgegalindez@gmail.com</span>
+                        <span>📞 (+58) 412-516-70-87 / 424-582-04-26</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <h2 class="section-title">Resumen Profesional</h2>
+            <p>Especialista en <strong>Infraestructura TI y Desarrollador de Software</strong> con más de 15 años de trayectoria garantizando la continuidad operativa de plataformas críticas. Experto en administración de redes seguras (Mikrotik), virtualización de alta disponibilidad (Proxmox) y soporte técnico Nivel 3. Poseo un perfil híbrido único que integra el dominio del hardware y redes con el desarrollo de aplicaciones web (Laravel/Vue) para la automatización de procesos y optimización de la inteligencia de negocio (Power BI).</p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="skills-container">
+                <div class="skill-group">
+                    <h4>Infraestructura y Redes</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Mikrotik (RB4011, RB2011)</span>
+                        <span class="tag">Redes LAN/WAN/VPN</span>
+                        <span class="tag">CCTV Hikvision</span>
+                        <span class="tag">Telefonía IP Panasonic</span>
+                        <span class="tag">Seguridad Perimetral</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Desarrollo de Software</h4>
+                    <div class="skill-tags">
+                        <span class="tag">PHP / Laravel / Livewire</span>
+                        <span class="tag">Vue.js / Capacitor</span>
+                        <span class="tag">Bootstrap 5</span>
+                        <span class="tag">Git / GitHub</span>
+                        <span class="tag">WordPress Dev</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Sistemas y Cloud</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Proxmox VE / VMware</span>
+                        <span class="tag">Windows Server 2012/19</span>
+                        <span class="tag">Ubuntu Server</span>
+                        <span class="tag">Open Media Vault</span>
+                        <span class="tag">Power BI Analytics</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Bases de Datos y ERP</h4>
+                    <div class="skill-tags">
+                        <span class="tag">MySQL / SQL Server</span>
+                        <span class="tag">Profit Plus</span>
+                        <span class="tag">Sistema Valery</span>
+                        <span class="tag">Sistema ADN / Móvil</span>
+                        <span class="tag">Sistemas SAE</span>
+                        <span class="tag">K2B / InConcert</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Experiencia Profesional</h2>
             
-            // 2. Definimos el nombre prolijo para el archivo PDF (sin espacios ni caracteres raros)
-            const nombreArchivoPDF = "CV_George_Galindez_Infraestructura_y_Soporte_IT";
-            
-            // 3. Cambiamos el título del documento temporalmente
-            document.title = nombreArchivoPDF;
-            
-            // 4. Disparamos el diálogo de impresión
-            window.print();
-            
-            // 5. Escuchamos cuando el usuario cierra el diálogo (sea que guardó o canceló) 
-            // para devolverle el título original a la pestaña.
-            window.onafterprint = function() {
-                document.title = tituloOriginal;
-                // Limpiamos el evento para que no quede en memoria
-                window.onafterprint = null; 
-            };
-        }
-    </script>
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <p class="item-title">Analista de Soporte y Tecnología</p>
+                        <p class="item-company">Distribuidora El Loro</p>
+                    </div>
+                    <span class="item-date">Jul 2024 – Actualidad</span>
+                </div>
+                <ul>
+                    <li>Lidero la estabilidad tecnológica de 3 sedes regionales, garantizando una operatividad del 99.9% mediante la supervisión de infraestructuras críticas.</li>
+                    <li>Implementé un entorno de virtualización con Proxmox VE y almacenamiento centralizado (OMV), optimizando recursos de hardware en un 40%.</li>
+                    <li>Diseñé y desarrollé un ecosistema de aplicaciones (Laravel + Vue + Capacitor) para ventas, logrando sincronización en tiempo real cada 5 minutos.</li>
+                    <li>Administro redes core basadas en Mikrotik y túneles VPN para la interconexión segura entre sucursales.</li>
+                    <li>Ejecuto la estrategia de BI mediante Power BI, transformando datos operativos en tableros de control gerenciales.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <p class="item-title">Analista de Sistemas</p>
+                        <p class="item-company">La Victoria C.A</p>
+                    </div>
+                    <span class="item-date">Jun 2019 – May 2024</span>
+                </div>
+                <ul>
+                    <li>Optimicé la infraestructura de red LAN/Wifi mediante configuración avanzada de Mikrotik, mejorando el rendimiento interno.</li>
+                    <li>Administré la plataforma ERP Profit 2k12, asegurando la integridad de los datos financieros y comerciales.</li>
+                    <li>Implementé sistemas de control biométrico y seguridad CCTV, fortaleciendo el resguardo de activos.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <p class="item-title">Técnico de Implementación</p>
+                        <p class="item-company">Multimax Store C.A</p>
+                    </div>
+                    <span class="item-date">Abr 2020 – Ago 2021</span>
+                </div>
+                <ul>
+                    <li>Ejecuté el despliegue tecnológico en grandes superficies, incluyendo instalación masiva de CCTV (64 cámaras) y redes de alto tráfico.</li>
+                    <li>Configuré la red core con Mikrotik RB4011 para soportar la operación de la tienda.</li>
+                    <li>Administré servidores en entornos mixtos Windows Server (VMware/Proxmox), garantizando la disponibilidad del POS.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <p class="item-title">Analista de Soporte / Web Dev</p>
+                        <p class="item-company">Tiendas Aurora C.A</p>
+                    </div>
+                    <span class="item-date">Abr 2017 – Jun 2019</span>
+                </div>
+                <ul>
+                    <li>Implementé la arquitectura tecnológica base de múltiples sedes (Redes, CCTV, Alarmas).</li>
+                    <li>Soporte nivel experto al Sistema Valery y mantenimiento de infraestructura Windows Server 2k12 R2.</li>
+                    <li>Desarrollé y gestioné la presencia digital corporativa de la organización.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <p class="item-title">Sistema POS Infinito (SaaS B2B para PyMEs)</p>
+                        <p class="item-company">Arquitecto y Desarrollador Full-Stack</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Lidero el desarrollo de una plataforma multitenant orientada a la modernización de pequeños comercios locales.</li>
+                    <li>Arquitectura modular con Laravel y Vue.js, integrando capacidades offline-first para mitigar problemas de conectividad regional.</li>
+                    <li>Resolución de procesos complejos de facturación e inventario mediante un motor de base de datos optimizado.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Educación</h2>
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <p class="item-title">T.S.U en Informática</p>
+                        <p class="item-company">IUT Antonio José de Sucre</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <p class="item-title">Ingeniería Electrónica (Hasta 5to Semestre)</p>
+                        <p class="item-company">UNEXPO Barquisimeto</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.linkedin.com/in/george-galindez" alt="QR Code Perfil Online">
+            <p>Escanea el perfil online</p>
+        </div>
+    </div>
 
 </body>
 </html>
