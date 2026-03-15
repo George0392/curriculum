@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George Galíndez - ATS Optimized CV</title>
+    <style>
+        /* CSS Mínimo para Estándares ATS */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #000;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+        }
+        h1 { font-size: 24pt; margin-bottom: 5px; text-transform: uppercase; }
+        h2 { font-size: 16pt; margin-top: 25px; border-bottom: 2px solid #333; padding-bottom: 5px; text-transform: uppercase; }
+        h3 { font-size: 13pt; margin-top: 15px; margin-bottom: 5px; }
+        p { margin: 10px 0; }
+        ul { margin: 10px 0; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        .contact { margin-bottom: 20px; font-weight: bold; }
+        .date { font-style: italic; color: #444; }
+        
+        /* Ocultar contenido mientras carga */
+        #cv-content:empty::before {
+            content: "Cargando datos del CV...";
+            font-style: italic;
+            color: #888;
+        }
+
+        /* Aviso de Servidor Local */
+        #cors-warning {
+            display: none;
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border: 1px solid #ffeeba;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cors-warning">
+        <strong>⚠️ NOTA IMPORTANTE:</strong> Este archivo requiere ser ejecutado a través de un <strong>Servidor Local</strong> (como la extensión "Live Server" de VS Code) para poder leer los datos de <code>index.html</code> debido a políticas de seguridad del navegador (CORS).
+    </div>
+
+    <div id="cv-content"></div>
+
+    <script>
+        /**
+         * ATS OPTIMIZER SCRIPT
+         * Desarrollado por Antigravity (Frontend & ATS Expert)
+         * 
+         * Este script extrae la información de index.html y la reformatea
+         * para cumplir con los estándares de lectura de los sistemas ATS.
+         */
+
+        async function loadATSVersion() {
+            const container = document.getElementById('cv-content');
+            const warning = document.getElementById('cors-warning');
+            
+            // Detección de protocolo: Si es http/https (GitHub Pages o Servidor Local), ocultar aviso.
+            if (window.location.protocol.startsWith('http')) {
+                warning.style.display = 'none';
+            } else {
+                warning.style.display = 'block';
+            }
+
+            try {
+                // En GitHub Pages, esto funcionará automáticamente ya que ambos archivos están en el mismo repo.
+                const response = await fetch('index.html');
+                if (!response.ok) throw new Error('No se pudo cargar index.html');
+                
+                const htmlText = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+
+                // Helper para encontrar secciones por texto del h2 (más robusto que querySelector puro)
+                const getSectionByTitle = (title) => {
+                    return Array.from(doc.querySelectorAll('section')).find(s => 
+                       s.querySelector('h2')?.innerText.toLowerCase().includes(title.toLowerCase())
+                    );
+                };
+
+                // --- CABECERA ---
+                let atsHTML = `<h1>${doc.querySelector('h1').innerText}</h1>`;
+                const subtitle = doc.querySelector('.subtitle').innerText;
+                const contactInfo = Array.from(doc.querySelectorAll('.contact-info span')).map(s => s.innerText).join(' | ');
+                atsHTML += `<p class="contact">${subtitle}<br>${contactInfo}</p>`;
+
+                // --- RESUMEN ---
+                const resSection = getSectionByTitle('Resumen');
+                if(resSection) {
+                    atsHTML += `<h2>Resumen Profesional</h2><p>${resSection.querySelector('p').innerText}</p>`;
+                }
+
+                // --- HABILIDADES ---
+                atsHTML += `<h2>Habilidades Técnicas</h2><ul>`;
+                doc.querySelectorAll('.skill-group').forEach(group => {
+                    const category = group.querySelector('h4').innerText;
+                    const tags = Array.from(group.querySelectorAll('.tag')).map(t => t.innerText).join(', ');
+                    atsHTML += `<li><strong>${category}:</strong> ${tags}</li>`;
+                });
+                atsHTML += `</ul>`;
+
+                // --- EXPERIENCIA ---
+                const expSection = getSectionByTitle('Experiencia');
+                if(expSection) {
+                    atsHTML += `<h2>Experiencia Profesional</h2>`;
+                    expSection.querySelectorAll('.item').forEach(item => {
+                        const title = item.querySelector('.item-title').innerText;
+                        const company = item.querySelector('.item-company').innerText;
+                        const date = item.querySelector('.item-date').innerText;
+                        const bullets = Array.from(item.querySelectorAll('ul li')).map(li => `<li>${li.innerText}</li>`).join('');
+                        
+                        atsHTML += `<h3>${title} - ${company}</h3>`;
+                        atsHTML += `<p class="date">${date}</p>`;
+                        atsHTML += `<ul>${bullets}</ul>`;
+                    });
+                }
+
+                // --- PROYECTOS ---
+                const proSection = getSectionByTitle('Proyectos');
+                if(proSection) {
+                   atsHTML += `<h2>Proyectos Destacados</h2>`;
+                   proSection.querySelectorAll('.item').forEach(item => {
+                        const title = item.querySelector('.item-title').innerText;
+                        const company = item.querySelector('.item-company').innerText;
+                        const bullets = Array.from(item.querySelectorAll('ul li')).map(li => `<li>${li.innerText}</li>`).join('');
+                        
+                        atsHTML += `<h3>${title} (${company})</h3>`;
+                        atsHTML += `<ul>${bullets}</ul>`;
+                    });
+                }
+
+                // --- EDUCACIÓN ---
+                const eduSection = getSectionByTitle('Educación');
+                if(eduSection) {
+                    atsHTML += `<h2>Educación</h2>`;
+                    eduSection.querySelectorAll('.item').forEach(item => {
+                        atsHTML += `<p><strong>${item.querySelector('.item-title').innerText}</strong> - ${item.querySelector('.item-company').innerText}</p>`;
+                    });
+                }
+
+                container.innerHTML = atsHTML;
+
+            } catch (error) {
+                console.error('Error al generar versión ATS:', error);
+                container.innerHTML = `<p style="color: red;">Error: ${error.message}. Verifica que index.html esté en la misma carpeta.</p>`;
+            }
+        }
+
+        window.onload = loadATSVersion;
+    </script>
+</body>
+</html>

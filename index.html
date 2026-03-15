@@ -316,10 +316,34 @@
             .qr-code { margin-top: 20px; }
         }
 
+        .ats-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .ats-link a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .ats-link a:hover {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+
         /* ========================================= */
         /* OPTIMIZACIÓN EXTREMA PARA IMPRESIÓN (PDF) */
         /* ========================================= */
         @media print {
+            .ats-link { display: none !important; }
             @page {
                 margin: 1.5cm; /* Márgenes ajustados de la página */
             }
@@ -653,6 +677,10 @@
         <div class="qr-code">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.linkedin.com/in/george-galindez" alt="QR Code Perfil Online">
             <p>Escanea el perfil online</p>
+        </div>
+
+        <div class="ats-link">
+            <a href="cv-ats.html">📄 Ver Versión ATS (Texto Plano)</a>
         </div>
     </div>
 
